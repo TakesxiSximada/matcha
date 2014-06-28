@@ -112,8 +112,8 @@ def main(argv=sys.argv[1:]):
         (r'/scripts/(.*)', StaticFileHandler,
          {'path': os.path.join(os.path.dirname(__file__), "app/scripts")}),
         ],
-        template_path=os.path.join(os.path.dirname(__file__), "dist"),
-        static_path=os.path.join(os.path.dirname(__file__), "static"),
+        template_path=os.path.join(os.path.dirname(__file__), "app"),
+        static_path=os.path.join(os.path.dirname(__file__), "app/static"),
         debug=True,
         #xsrf_cookies=True,
         )
