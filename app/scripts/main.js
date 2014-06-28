@@ -8,10 +8,15 @@ function initializeMap() {
 		zoom: 8,
 		center: defaultCenter
 	};
-	map = new google.maps.Map(document.getElementById('map-canvas'),
+	map = new google.maps.Map($("#map-canvas")[0],
 		mapOptions);
 
-    matcha_loader_run();
+	matcha_loader_run();
+
+	google.maps.event.addListener(map, 'click', function() {
+		$(".sheep-message-open").css("visibility", "hidden");
+		$(".sheep-default").css("visibility", "visible");
+	});
 }
 
 function addMessageMarker(id_, lat, lng, message) {
@@ -29,7 +34,7 @@ function addMessageMarker(id_, lat, lng, message) {
 			$(".sheep-message-deliver").css("visibility", "hidden");
 			$(".sheep-message-open").css("visibility", "visible");
             $("#message-content").text(msgMap[id_]);
-		}, 2000);
+		}, 1000);
 
 	});
 }
