@@ -1,4 +1,6 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+@import url(http://fonts.googleapis.com/css?family=Nunito:700|Varela+Round);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5215,13 +5217,13 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
   /* Make the masthead heading the same height as the navigation */ }
-  .header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px; }
+  .header .title {
+    text-align: center;
+    color: #5e4802;
+    font-family: 'Nunito', sans-serif;
+    font-size: 45px;
+    margin-top: 10px; }
 
 /* Custom page footer */
 .footer {
@@ -5265,7 +5267,7 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0; } }
-.header, .footer {
+.footer {
   display: none; }
 
 #map-canvas {
@@ -5278,10 +5280,14 @@ body {
   position: relative;
   background: #fff;
   border: 4px solid #5e4802;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   height: 200px;
-  margin-top: 30px; }
+  margin-top: 30px;
+  font-family: "Varela Round", Arial, "Hiragino Maru Gothic Pro", "HG丸ゴシックM-PRO", "メイリオ", Meiryo, verdana, arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #5e4802; }
   #message-content:after, #message-content:before {
     left: 100%;
     top: 50%;
