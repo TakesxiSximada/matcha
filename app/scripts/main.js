@@ -23,6 +23,11 @@ function addMessageMarker(id_, lat, lng, message) {
 		icon: iconBase + 'schools_maps.png'
 	});
 	msgMap[id_] = message;
+
+	google.maps.event.addListener(marker, 'click', function() {
+		$(".sheep-default").css("visibility", "hidden");
+		$(".sheep-message-deliver").css("visibility", "visible");
+	});
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
