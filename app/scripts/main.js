@@ -13,16 +13,16 @@ function initializeMap() {
 		mapOptions);
 
     matcha_loader_run();
-	addMessageMarker(-34.397, 150.644); // TODO this will be called upon server call, not here
+	// addMessageMarker(1, -34.397, 150.644); // TODO this will be called upon server call, not here
 }
 
-function addMessageMarker(lat, lng, message) {
+function addMessageMarker(id_, lat, lng, message) {
 	var marker = new google.maps.Marker({
 		position: new google.maps.LatLng(lat, lng),
 		map: map,
 		icon: iconBase + 'schools_maps.png'
 	});
-	msgMap[msgId++] = message;
+	msgMap[id_] = message;
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
