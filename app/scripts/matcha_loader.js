@@ -18,5 +18,5 @@ var MatchaLoader = (function () {
 function matcha_loader_run(){
     var loader = new MatchaLoader();
     loader.get_json();
-    window.setTimeout(matcha_loader_run, 1000);
+    // window.setTimeout(matcha_loader_run, 1000); // 定期的に実行はとりあえずしない
 }
