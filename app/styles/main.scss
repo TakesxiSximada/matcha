@@ -15,6 +15,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    background: #7eb750;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -91,16 +92,68 @@ body {
         border-bottom: 0;
     }
 
-	#map-canvas {
-		height:300px;
-	}
+}
 
-	.sheep-message-deliver {
-		visibility:hidden;
-	}
+/////
+.header,.footer{
+    display: none;
+}
 
-	.sheep-message-open {
-		visibility:hidden;
-	}
+$border: #5e4802;
 
+#map-canvas {
+    height:300px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 4px solid $border;
+}
+
+#message-content{
+    position: relative;
+    background: #fff;
+    border: 4px solid $border;
+    padding: 10px;
+    border-radius: 10px;
+    height: 200px;
+    margin-top: 30px;
+    &:after,&:before {
+        left: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    &:after{
+        border-color: rgba($border, 0);
+        border-left-color: #fff;
+        border-width: 10px;
+        margin-top: -10px;
+    }
+    &:before {
+        border-color: rgba($border, 0);
+        border-left-color: $border;
+        border-width: 16px;
+        margin-top: -16px;
+    }
+}
+
+#character{
+    position: relative;
+    width: 260px;
+    height: 260px;
+    text-align: right;
+    [class^="sheep-"]{
+        position: absolute;
+    }
+}
+
+.sheep-message-deliver {
+    visibility:hidden;
+}
+
+.sheep-message-open {
+    visibility:hidden;
 }
