@@ -85,6 +85,35 @@ class LoginHandler(RequestHandler):
     def post(self):
         self.redirect('/')
 
+class MessagesAPIHandler(RequestHandler):
+    def get(self):
+
+        dummy = [
+            {'id': 1,
+             'message': 'hello'*5,
+             'lat': 1.23456,
+             'long': 3.4556,
+             },
+            {'id': 2,
+             'message': 'hello'*5,
+             'lat': 1.23456,
+             'long': 3.4556,
+             },
+            {'id': 3,
+             'message': 'hello'*5,
+             'lat': 1.23456,
+             'long': 3.4556,
+             },
+            {'id': 4,
+             'message': 'hello'*5,
+             'lat': 1.23456,
+             'long': 3.4556,
+             },
+            ]
+        import json
+        res = json.dumps(dummy)
+        self.write(res)
+
 from tornado.web import Application
 import tornado.ioloop
 def main(argv=sys.argv[1:]):
@@ -99,6 +128,7 @@ def main(argv=sys.argv[1:]):
 
     application = Application([
         (r'/', IndexHandler),
+        (r'/api/messages', MessagesAPIHandler),
         (r'/auth/login', LoginHandler),
         (r'/auth/logout', DummyHandler),
         (r'/setting', DummyHandler),
