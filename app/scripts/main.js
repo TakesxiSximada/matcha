@@ -2,7 +2,6 @@ var map;
 var defaultCenter = new google.maps.LatLng(-34.397, 150.644);
 var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 var msgMap= {};
-var msgId = 0;
 
 function initializeMap() {
 	var mapOptions = {
@@ -13,7 +12,6 @@ function initializeMap() {
 		mapOptions);
 
     matcha_loader_run();
-	// addMessageMarker(1, -34.397, 150.644); // TODO this will be called upon server call, not here
 }
 
 function addMessageMarker(id_, lat, lng, message) {
@@ -27,6 +25,10 @@ function addMessageMarker(id_, lat, lng, message) {
 	google.maps.event.addListener(marker, 'click', function() {
 		$(".sheep-default").css("visibility", "hidden");
 		$(".sheep-message-deliver").css("visibility", "visible");
+		setTimeout(function() {
+			$(".sheep-message-deliver").css("visibility", "hidden");
+			$(".sheep-message-open").css("visibility", "visible");
+		}, 2000);
 	});
 }
 
