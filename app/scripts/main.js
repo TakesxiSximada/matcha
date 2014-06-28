@@ -7,6 +7,8 @@ function initializeMap() {
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'),
 		mapOptions);
+
+    matcha_loader_run();
 }
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
