@@ -40,7 +40,6 @@ class CaptureHandler(RequestHandler):
         self.render('capture.html')
 
     def post(self):
-
         capture = self.request.files['capture'][0]
         content_type = capture['content_type']
         body = capture['body']
@@ -92,22 +91,22 @@ class MessagesAPIHandler(RequestHandler):
             {'id': 1,
              'message': 'hello'*5,
              'lat': 1.23456,
-             'long': 3.4556,
+             'lng': 3.4556,
              },
             {'id': 2,
              'message': 'hello'*5,
              'lat': 1.23456,
-             'long': 3.4556,
+             'lng': 4.4556,
              },
             {'id': 3,
              'message': 'hello'*5,
              'lat': 1.23456,
-             'long': 3.4556,
+             'lng': 3.4533,
              },
             {'id': 4,
              'message': 'hello'*5,
              'lat': 1.23456,
-             'long': 3.4556,
+             'lng': 3.4551,
              },
             ]
         import json
@@ -129,6 +128,7 @@ def main(argv=sys.argv[1:]):
     application = Application([
         (r'/', IndexHandler),
         (r'/api/messages', MessagesAPIHandler),
+        (r'/api/messages.json', MessagesAPIHandler),
         (r'/auth/login', LoginHandler),
         (r'/auth/logout', DummyHandler),
         (r'/setting', DummyHandler),
@@ -141,6 +141,8 @@ def main(argv=sys.argv[1:]):
          {'path': os.path.join(os.path.dirname(__file__), "app/styles")}),
         (r'/scripts/(.*)', StaticFileHandler,
          {'path': os.path.join(os.path.dirname(__file__), "app/scripts")}),
+        (r'/images/(.*)', StaticFileHandler,
+         {'path': os.path.join(os.path.dirname(__file__), "app/images")}),
         ],
         template_path=os.path.join(os.path.dirname(__file__), "app"),
         static_path=os.path.join(os.path.dirname(__file__), "app/static"),

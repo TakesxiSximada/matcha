@@ -10,3 +10,5 @@ test/bower_components
 .idea/
 
 *~
+
+dist/
