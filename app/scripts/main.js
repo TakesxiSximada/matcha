@@ -28,7 +28,9 @@ function addMessageMarker(id_, lat, lng, message) {
 		setTimeout(function() {
 			$(".sheep-message-deliver").css("visibility", "hidden");
 			$(".sheep-message-open").css("visibility", "visible");
+            $("#message-content").text(msgMap[id_]);
 		}, 2000);
+
 	});
 }
 
